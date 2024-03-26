@@ -1,48 +1,99 @@
 <html>
     <header>
         <title>TODO APP</title>
+        <style>
+            .container-login{
+                display: none;
+            }
+        </style>
+
     </header> 
     <body>
 
-    <div class ="login">
-        <h2>Faça o Login no App</h2>
-        <form>
-            <input type="email" name="email" value="">
-            <input type="password" name="password" value="">
+<div class ="login">
+    <h2>Faça o Login meu brother</h2>
+    <form>
+        <input type="email" name="email" value="">
+        <input type="password" name="password" value="">
+        <input type="submit" name="acao" value="logar">
+    </form>
+</div><!--Login-->
 
-        </form>
-    </div><!--Login-->
+<div class="container-login">
+    <h2>Olá você está logado! <a class= "logout" href="javascript:void(0);"> Desconectar</a></h2>
+</div><!--container-logino-->    
 
-    <div class="container-login">
+ 
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+
+
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD9XSB4yBcQ1FIsuvejDsxqxwlHCInC3hs",
+    authDomain: "agendaapp-guit.firebaseapp.com",
+    projectId: "agendaapp-guit",
+    storageBucket: "agendaapp-guit.appspot.com",
+    messagingSenderId: "17884999849",
+    appId: "1:17884999849:web:081331528c350958a679b8"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  var usuario=null;
+
+  var formLogin = document.querySelector('form');
+
+  var btnLogout = document.querySelector('.logout');
+
+  formLogin.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let email = document.querySelector('[name=email]').value;
+    let password = document.querySelector('[name=password]').value;
+    // alert(email);
+    // alert(password);
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+        // Signed in
+        usuario = userCredential.user;
+        document.querySelector('.login').style.display = "none";
+        document.querySelector('.container-login').style.display = "block";
+        alert('Logado com sucesso!'+usuario.email);
         
-    </div><!--container-logino-->    
+        formLogin.reset();
+    })
+    .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+    });     
+  })
 
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+btnLogout.addEventListener('click', (e)=>{
+    e.preventDefault();
+    
 
-            
+    firebase.auth().signOut().then(() => {
+        usuario = null;
+        document.querySelector('.login').style.display = "block";
+        document.querySelector('.container-login').style.display = "none";
+        alert('Deslogado');    
+    // Sign-out successful.
+    }).catch((error) => {
+    // An error happened.
+    });
+});
 
-            <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
 
-            <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
 
-        
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
 
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-                apiKey: "AIzaSyD9XSB4yBcQ1FIsuvejDsxqxwlHCInC3hs",
-                authDomain: "agendaapp-guit.firebaseapp.com",
-                projectId: "agendaapp-guit",
-                storageBucket: "agendaapp-guit.appspot.com",
-                messagingSenderId: "17884999849",
-                appId: "1:17884999849:web:081331528c350958a679b8"
-            };
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-        </script>
+</script>
     </body>  
 </html>
