@@ -8,23 +8,39 @@ const server = fastify()
 
 const database = new Databasememory()
 
-server.post('/videos', () => {
+server.post('/videos', (request, reply) => {
+
+  
+  const { title, description, duration } = request.body
+
   database.create( {
-    title: 'video 01',
-    description: 'descrição do video',
-    duration: 240,
+    title,
+    description,
+    duration,
 
   })
-
   console.log(database.list())
+  //status code 201 significa que algo foi criado
+  return reply.status(201).send()
 })
 
 server.get('/videos', () => {
-  return 'usuario acessou qualquer rota'
+  const videos = database.list()
+  console.log(videos)
+return videos
 })
 
-server.put('/videos/:id', () => {
-  return 'usuario acessou qualquer rota'
+server.put('/videos/:id', (request, reply) => {
+  const videoId = request.params.id
+  const { title, description, duration } = request.body
+
+  database.update(videoId, {
+    title, 
+    description,
+    duration
+  })
+
+  return reply.status(204).send()
 })
 
 server.delete('/videos/:id', () => {
