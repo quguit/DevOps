@@ -9,19 +9,16 @@ const server = fastify()
 const database = new Databasememory()
 
 server.post('/videos', (request, reply) => {
+    const { title, description, duration } = request.body
 
-  
-  const { title, description, duration } = request.body
+    database.create( {
+      title,
+      description,
+      duration,
 
-  database.create( {
-    title,
-    description,
-    duration,
-
-  })
-  console.log(database.list())
-  //status code 201 significa que algo foi criado
-  return reply.status(201).send()
+    })
+    //status code 201 significa que algo foi criado
+    return reply.status(201).send()
 })
 
 server.get('/videos', () => {
