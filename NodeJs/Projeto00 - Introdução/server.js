@@ -1,7 +1,9 @@
-import {createServer} from 'node:htpp'
+import { createServer } from 'http';
 
 const server = createServer(() => {
-console.log('oi')
-})
-server.listen(3333)
+    console.log('oi');
+});
+
+server.listen(5000);
+
 
