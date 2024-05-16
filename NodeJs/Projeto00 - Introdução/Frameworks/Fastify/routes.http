@@ -1,25 +1,28 @@
 
-POST http://localhost:5656/videos
+POST http://localhost:2000/videos
 Content-Type: application/json
 
 {
-  "title": "Video 00",
+  "title": "Video node",
   "description": "this is first video",
   "duration": 180
 }
 
 ###
 
-GET http://localhost:5656/videos
+GET http://localhost:2000/videos
 
 ###
 
-PUT http://localhost:5656/videos/
+PUT http://localhost:2000/videos/4ce6bb58-e9ba-48c0-bec4-4b2cd6e32fee
 Content-Type: application/json
 
 {
-  "title": "Video 02",
+  "title": "Video 02 node",
   "description": "Essa é a segunda descrição",
   "duration": 240
 }
 
+###
+
+DELETE http://localhost:2000/videos/0c5fb90a-018b-4146-9c69-74ec61347429
