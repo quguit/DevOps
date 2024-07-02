@@ -9,7 +9,7 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
-
+// receitaa para utilizar node com express 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use('/public', express.static(path.join(__dirname, 'public')));
