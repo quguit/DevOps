@@ -1,0 +1,19 @@
+
+Comdandos
+Inicia o Banco verificando se está ativo e entra no mysql:
+mysql
+, seguido de 
+$show databases;
+
+$use <name data base>;
+$show tables;
+show columns from <name columns>;
+
+Querys:
+insert into `<name columns>` values (null, "Primeiro post", Conteudo do post", 0);
+
+select * from `<name columns>`;
+
+update `
+
+

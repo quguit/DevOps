@@ -1,0 +1,46 @@
+sudo /opt/lampp/manager-linux-x64.run
+Iniciando
+Para iniciar todos os serviços do xampp, use o seguinte comando no terminal.
+
+sudo /opt/lampp/xampp start
+
+Para iniciar apenas o Apache, use:
+
+sudo /opt/lampp/xampp startapache
+Para iniciar apenas o servidor FTP Proftpd, use:
+
+sudo /opt/lampp/xampp startftp
+Para iniciar apenas o servidor de banco de dados MySQL:
+
+sudo /opt/lampp/xampp startmysql
+Parando
+Para parar todos os serviços do xampp, use o seguinte comando no terminal.
+
+sudo /opt/lampp/xampp stop
+Para parar apenas o Apache, use:
+
+sudo /opt/lampp/xampp stopapache
+Para parar apenas o servidor FTP Proftpd, use:
+
+sudo /opt/lampp/xampp stopftp
+
+Para parar apenas o servidor de banco de dados MySQL:
+
+sudo /opt/lampp/xampp stopmysql
+Reiniciando
+Para reiniciar todos os serviços do xampp, use o seguinte comando no terminal.
+
+sudo /opt/lampp/xampp restart
+E para outros comandos, é possível verificar a seção de ajuda do xampp executando o seguinte.
+
+sudo /opt/lampp/xampp --help
+
+Como remover o XAMPP no Linux
+Se for necessário desinstalar o XAMPP do seu sistema, faça o seguinte:
+
+Passo 1. Abra um terminal;
+Passo 2. Desinstale o programa executando os seguintes comandos;
+
+sudo /opt/lampp/lampp stop
+sudo /opt/lampp/uninstall
+sudo rm -rf /opt/lampp
