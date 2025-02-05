@@ -31,3 +31,5 @@ select * from <tabela> oder by <coluna referencia> <tipo de ordenação>;
 asc > Crescente; desc > decrescente;
 select * from posts order by titulo desc;
 
+
+
