@@ -1,5 +1,8 @@
 sudo /opt/lampp/manager-linux-x64.run
 Iniciando
+sudo /opt/lampp/manager-linux-x64.run
+
+
 Para iniciar todos os serviços do xampp, use o seguinte comando no terminal.
 
 sudo /opt/lampp/xampp start
