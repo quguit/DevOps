@@ -52,4 +52,4 @@ select * from posts inner join autores on posts.autor_id=autores.id where posts.
 //left join, ele retorna mesmo que não exista autor_id ele retorna nulo onde não existir nada nessa relação.
 slect * from posts left join autores on posts.autor_id=autores.id;
 
-//right join
+//right join ele pega a tabela da direita  e no left a da esquerda e faz a correlação onde não existir a condição ele retorna null
