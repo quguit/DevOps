@@ -101,6 +101,15 @@ header{
       color:white;
       z-index: 2;
   }
+  .title-destaque-descricao h2{
+      font-size: 64px;
+      margin: 20px 0;
+      
+  }
+  .title-destaque-descricao p{
+      font-weight: lighter;
+      font-size: 16px;
+  }
 
   .overlay-destaque{
       position: absolute;
@@ -150,9 +159,9 @@ header{
     
 }
 .box-ultima-single h2{
-    font-size: 16px;
+    font-size: 28px !important; 
     color: #303336;
-    margin: 20px 0;
+    
 }
 .box-ultima-single p{
     font-size: 14px;
